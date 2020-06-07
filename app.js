@@ -52,7 +52,7 @@ function getWeatherIncity(cityName) {
         var temperatureInKelvin = data.main.temp
         if (request.status >= 200 && request.status < 400) {
             if (typeof (temperatureInKelvin) == "number") {
-                document.getElementById("temp").innerHTML = temperatureInKelvin - 273.15;
+                document.getElementById("tempInCelsius").innerHTML = temperatureInKelvin - 273.15;
             }
             else {
                 document.getElementById("temp").innerHTML = "error fetching data";
@@ -60,6 +60,7 @@ function getWeatherIncity(cityName) {
         } else {
             document.getElementById("temp").innerHTML = "error fetching data";
         }
+          document.getElementById("tempInKelvin").innerHTML = temperatureInKelvin
 
     };
     request.send();
